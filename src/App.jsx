@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "./Slice";
+import { FetchData } from "./Slice";
 
 function App() {
-  const { user, status, error } = useSelector((state) => state.ApiTunk);
+  const { status, user, error } = useSelector((status) => status.ApiStore);
   const dispatch = useDispatch();
   useEffect(() => {
     if (status === "") {
-      dispatch(fetchData());
+      dispatch(FetchData());
     }
-  }, [status, dispatch]);
+  }, [dispatch, status]);
+
   return (
     <>
-      {status === "Loading" ? (
-        <p>loading</p>
-      ) : (
+      {status === "Loading" && <h2>Loading</h2>}
+      {status === "failed" && <h2>{error}</h2>}
+      {status === "success" && (
         <ul>
           {user.map((items, index) => {
-            return <li key={index}>{items.name}</li>;
+            return <li key={index}>{items.title}</li>;
           })}
         </ul>
       )}
-      {error && <h1>{error}</h1>}
     </>
   );
 }

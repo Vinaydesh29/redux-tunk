@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import apiSlice from './Slice.js'
+import ApiSlice from'./Slice.js'
 const store = configureStore({
     reducer:{
-        ApiTunk:apiSlice
+        ApiStore:ApiSlice
     }
 })
-export default store;
+
+export default store
