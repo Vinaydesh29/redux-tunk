@@ -1,31 +1,26 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FetchData } from "./Slice";
-import Counter from "./Counter";
-import Count from "./Count";
+import { fetchData } from "./Slice";
 
 function App() {
-  const { status, user, error } = useSelector((status) => status.ApiStore);
+  const { status, error, user } = useSelector((state) => state.ApiStore);
   const dispatch = useDispatch();
   useEffect(() => {
     if (status === "") {
-      dispatch(FetchData());
+      dispatch(fetchData());
     }
   }, [dispatch, status]);
-
   return (
     <>
-      {/* {status === "Loading" && <h2>Loading</h2>}
-      {status === "failed" && <h2>{error}</h2>}
+      {status === "loading" && <p>{status}</p>}
+      {status === "failed" && <p>{error}</p>}
       {status === "success" && (
         <ul>
           {user.map((items, index) => {
             return <li key={index}>{items.title}</li>;
           })}
         </ul>
-      )} */}
-      <Counter />
-      <Count />
+      )}
     </>
   );
 }
