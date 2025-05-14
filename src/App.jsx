@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "./Slice";
 import Promise from "./Promise";
+import PromiseData from "./PromiseData";
 
 function App() {
   // const { status, error, user } = useSelector((state) => state.ApiStore);
@@ -22,7 +23,7 @@ function App() {
           })}
         </ul>
       )} */}
-      <Promise />
+      <PromiseData />
     </>
   );
 }
