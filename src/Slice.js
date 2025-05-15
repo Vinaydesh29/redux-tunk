@@ -1,31 +1,28 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-export const fetchData = createAsyncThunk('ApiStore/fetchData' ,async ()=>{
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+export const fetchData = createAsyncThunk('ApiTunk/fetchData',async()=>{
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
     const data = await res.json()
     return data
 })
- const ApiSlice = createSlice({
+
+const Api = createSlice({
     name:"api",
     initialState:{
-        status:"",
-        user:[],
-        error:null
+        status :"",
+        error : "",
+        user:[]
     },
-    reducers:{
-
-    },
+    reducers:{},
     extraReducers:(builder)=>{
         builder.addCase(fetchData.pending,(state)=>{
-            state.status = "loading"
-        });
-        builder.addCase(fetchData.fulfilled,(state,action)=>{
+            state.status = "Loading"
+        }).addCase(fetchData.fulfilled,(state,action)=>{
             state.status = "success"
             state.user = action.payload
-        });
-        builder.addCase(fetchData.rejected,(state,action)=>{
-           state.status = "failed"
-           state.error = action.error.message
+        }).addCase(fetchData.rejected,(state,action)=>{
+            state.status = "error"
+            state.error = action.error.message
         })
     }
- })
- export default ApiSlice.reducer
+})
+export default Api.reducer

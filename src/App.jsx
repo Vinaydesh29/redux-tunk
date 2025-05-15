@@ -6,6 +6,7 @@ import PromiseData from "./PromiseData";
 
 import Counter2 from "./Counter2";
 import Count from "./Count";
+import Api from "./Api";
 
 function App() {
   // const { status, error, user } = useSelector((state) => state.ApiStore);
@@ -27,8 +28,7 @@ function App() {
           })}
         </ul>
       )} */}
-      <Counter2 />
-      <Count />
+      <Api />
     </>
   );
 }
