@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { incre } from "./CountSlice";
+import { update } from "./CountSlice";
 
 function Count() {
-  const [num, setNum] = useState();
-  const value = useSelector((state) => state.counter.value);
+  const [data, setData] = useState();
+  const value = useSelector((state) => state.count.value);
   const dispatch = useDispatch();
   return (
     <>
-      <p>Count : {value}</p>
-      <input type="number" onChange={(e) => setNum(parseInt(e.target.value))} />
-      <button onClick={() => dispatch(incre(num))}>Incre By {num}</button>
+      <input type="text" onChange={(e) => setData(parseInt(e.target.value))} />
+      <button onClick={() => dispatch(update(data))}>Ince By {data}</button>
     </>
   );
 }

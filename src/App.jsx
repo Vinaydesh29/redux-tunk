@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "./Slice";
 import Promise from "./Promise";
 import PromiseData from "./PromiseData";
-import Counter from "./Counter";
+
+import Counter2 from "./Counter2";
+import Count from "./Count";
 
 function App() {
   // const { status, error, user } = useSelector((state) => state.ApiStore);
@@ -13,7 +15,7 @@ function App() {
   //     dispatch(fetchData());
   //   }
   // }, [dispatch, status]);
-  const LazyLoad = lazy(() => import("./Counter"));
+  // const LazyLoad = lazy(() => import("./Counter"));
   return (
     <>
       {/* {status === "loading" && <p>{status}</p>}
@@ -25,10 +27,8 @@ function App() {
           })}
         </ul>
       )} */}
-      <h1>this home page</h1>
-      <Suspense fallback={<div>loading</div>}>
-        <LazyLoad />
-      </Suspense>
+      <Counter2 />
+      <Count />
     </>
   );
 }

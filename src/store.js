@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import ApiSlice from'./Slice.js'
-import count from './CountSlice.js'
+import CounterSlice from "./CountSlice";
 const store = configureStore({
     reducer:{
-        ApiStore:ApiSlice,
-        counter :count
+       count: CounterSlice
     }
 })
 
