@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import Context from "./Context";
-import UseMemo from "./UseMemo";
+import UseCall from "./UseCall";
 export const NameContext = createContext();
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
     //   <button onClick={() => setTheme((prev) => !prev)}>ChangeTheme</button>
     //   <Context />
     // </NameContext.Provider>
-    <UseMemo />
+    <UseCall />
   );
 }
 export default App;
