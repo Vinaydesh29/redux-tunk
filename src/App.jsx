@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import Context from "./Context";
 import UseCall from "./UseCall";
+import TestAxios from "./TestAxios";
 export const NameContext = createContext();
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
     //   <button onClick={() => setTheme((prev) => !prev)}>ChangeTheme</button>
     //   <Context />
     // </NameContext.Provider>
-    <UseCall />
+    <TestAxios />
   );
 }
 export default App;
