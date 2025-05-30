@@ -12,13 +12,12 @@ function App() {
     setVal(name);
   };
   return (
-    // <NameContext.Provider value={{ val, theme }}>
-    //   <input type="text" onChange={(e) => setName(e.target.value)} />
-    //   <button onClick={HandleClick}>submit</button>
-    //   <button onClick={() => setTheme((prev) => !prev)}>ChangeTheme</button>
-    //   <Context />
-    // </NameContext.Provider>
-    <TestAxios />
+    <NameContext.Provider value={{ val, theme }}>
+      <input type="text" onChange={(e) => setName(e.target.value)} />
+      <button onClick={HandleClick}>submit</button>
+      <button onClick={() => setTheme((prev) => !prev)}>ChangeTheme</button>
+      <Context />
+    </NameContext.Provider>
   );
 }
 export default App;
